@@ -1,0 +1,26 @@
+workflows:
+  react-native-ios:
+    name: React Native iOS Build
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      node: v20.12.0
+      vars:
+        BUNDLE_ID: "uz.devguard.authenticator"
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: npm install
+      - name: Run Expo prebuild
+        script: npx expo prebuild --platform ios
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios && pod install
+      - name: Build iOS .ipa
+        script: |
+          # Xcode orqali .ipa faylni yig'ish (Workspace va Scheme nomini o'zingiznikiga moslang)
+          xcode-project build-ipa --workspace ios/Authenticator.xcworkspace --scheme Authenticator
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - "*.ipa"

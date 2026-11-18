@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "PassKey",
+    "slug": "passkey",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo.png",
+    "scheme": "passkey",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/images/logo.png",
+      "bundleIdentifier": "com.devguard.passkey",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#000000",
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundImage": "./assets/images/logo.png",
+        "monochromeImage": "./assets/images/logo.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.devguard.passkey"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/logo.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#000000",
+          "image": "./assets/images/logo.png",
+          "imageWidth": 76
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Ilovaga Face ID orqali xavfsiz kirish uchun ruxsat bering"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "7ce1f80e-7b13-4325-9d4c-c9b649e447ed"
+      }
+    },
+    "owner": "official.idev.uz"
+  }
+  
+}
